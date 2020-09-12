@@ -1,32 +1,26 @@
-from dataclasses import dataclass
+from Player import Player
+from StatCard import StatCard
+from Course import Course
 
 
-@dataclass
-class StatCard:
-    player = str
-    power = int
-    control = int
+def build_players():
+    players = []
+    default_stats = StatCard("player", 100, 100)
+    for player_number in range(1, 20):
+        players.append(Player("player " + str(player_number), default_stats))
 
-    def __init__(self, player, power, control):
-        self.player = player
-        self.power = power
-        self.control = control
+    return players
 
 
-@dataclass
-class Player:
-    name = str
-    stat_card = StatCard
-
-    def __init__(self, name, stat_card):
-        self.name = name
-        self.stat_card = stat_card
+def play(players, course):
+    for player in players:
+        pass
 
 
 def main():
-    player1 = Player("man", StatCard("man", 100, 100))
-    print(player1.name)
-    player2 = Player
+    players = build_players()
+    course1 = Course(3, 500)
+
 
 
 if __name__ == '__main__':
