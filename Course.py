@@ -4,9 +4,9 @@ from dataclasses import dataclass
 @dataclass
 class Course:
     name: str
-    holes: int
+    holes: list
 
-    def __init__(self, name, holes):
+    def __init__(self, name):
         self.name = name
-        self.holes = holes
+
 
