@@ -14,5 +14,8 @@ class Player:
     def __str__(self):
         return str(self.name)
 
+    def __hash__(self):
+        return hash((self.name, self.stat_card))
+
     def throw(self):
-        return self.stat_card.power  # windspeed later
+        return self.stat_card.power * self.stat_card.stability  # windspeed later

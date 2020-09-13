@@ -5,10 +5,12 @@ from dataclasses import dataclass
 class StatCard:
     player = str
     power = int
-    control = int
+    stability = float
 
-    def __init__(self, player, power, control):
+    def __init__(self, player, power, stability):
         self.player = player
         self.power = power
-        self.control = control
+        self.stability = stability
 
+    def __hash__(self):
+        return hash((self.player, self.power, self.stability))

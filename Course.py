@@ -3,9 +3,10 @@ from dataclasses import dataclass
 
 @dataclass
 class Course:
-    par = int
-    max_length = int
+    name: str
+    holes: int
 
-    def __init__(self, par, max_length):
-        self.par = par
-        self.max_length = max_length
+    def __init__(self, name, holes):
+        self.name = name
+        self.holes = holes
+
