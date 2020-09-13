@@ -6,6 +6,7 @@ from StatCard import StatCard
 class Player:
     name = str
     stat_card = StatCard
+    total_distance = int
 
     def __init__(self, name, stat_card):
         self.name = name
