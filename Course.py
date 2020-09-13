@@ -8,9 +8,9 @@ class Course:
     name = str
     holes = list
 
-    def __init__(self, name, holes):
+    def __init__(self, name):
         self.name = name
-        self.holes = holes
+
 
     def __str__(self):
         return 'Course: ' + str(self.name) + \
