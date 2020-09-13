@@ -12,7 +12,7 @@ class Player:
         self.stat_card = stat_card
 
     def __str__(self):
-        return str(self.name)
+        return str(self.name) + " "
 
     def __hash__(self):
         return hash((self.name, self.stat_card))

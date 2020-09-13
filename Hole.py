@@ -13,9 +13,13 @@ class Hole:
     def __str__(self):
         return 'Par: ' + str(self.par) + " Length: " + str(self.max_length)
 
+    def __hash__(self):
+        return hash((self.par, self.max_length))
+
+
 def generate_hole():
     length = random.randint(260, 1300)
-    #todo determine how foliage will work
+    # todo determine how foliage will work
     par = _determine_par(length)
     return Hole(par, length)
 

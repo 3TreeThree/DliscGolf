@@ -2,7 +2,7 @@ from Player import Player
 from StatCard import StatCard
 from Hole import Hole
 import ScoreCard
-from Course import Course
+import Course
 
 
 def build_players():
@@ -22,12 +22,13 @@ def play(players, hole):
 def main():
 
     players = build_players()
-    course = Course("frig")
+    course = Course.generate_course()
     score_card = ScoreCard.generate_score_card(players, course)
     for player in players:
         pass
 
     print(score_card)
+    print(course)
     hole1 = Hole(3, 500)
 
 

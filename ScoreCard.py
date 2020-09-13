@@ -6,10 +6,24 @@ from Course import Course
 class ScoreCard:
     players = list
     course = Course
+    scores = dict()
 
-    def __init__(self, players, course):
+    def __init__(self, players, course, scores):
         self.players = players
         self.course = course
+        self.scores = scores
+
+    def __str__(self):
+        player_scores_string = ''
+        for player in self.players:
+            player_scores_string += str(player) + '\t'
+            for hole in self.course.holes:
+                player_scores_string += str(self.scores[(player, hole)]) + '\t'
+            player_scores_string += '\n'
+
+        return 'Course: ' + str(self.course.name) + '\n' \
+            '\t\t\t' + ''.join(str(i) + '\t' for i in range(1, 19)) + '\n' \
+            + player_scores_string
 
 
 def generate_score_card(players, course):
@@ -17,4 +31,4 @@ def generate_score_card(players, course):
     for player in players:
         for hole in course.holes:
             score_card[(player, hole)] = 0
-    return score_card
+    return ScoreCard(players, course, score_card)
