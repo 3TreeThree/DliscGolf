@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import random
 
+
 @dataclass
 class Hole:
     par = int

@@ -29,8 +29,9 @@ def main():
             while player.total_distance < hole.max_length and strokes < hole.par + 3:
                 player.total_distance += player.throw()
                 strokes += 1
-            score_card.scores[(player, hole)] = strokes
+            score_card.scores[(player, hole)] = strokes - hole.par
     print(score_card)
+
 
 if __name__ == '__main__':
     main()
