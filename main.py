@@ -1,20 +1,10 @@
-from Player import Player
-from StatCard import StatCard
-from random import randint, uniform
+import Player
 import ScoreCard
 import Course
 
 
-def build_players():
-    players = []
-    for player_number in range(4):
-        players.append(Player("player " + str(player_number), StatCard("player", randint(100, 250), uniform(.75, .90))))
-
-    return players
-
-
 def main():
-    players = build_players()
+    players = [Player.generate_player(), Player.generate_player(), Player.generate_player(), Player.generate_player()]
     course = Course.generate_course()
     score_card = ScoreCard.generate_score_card(players, course)
 

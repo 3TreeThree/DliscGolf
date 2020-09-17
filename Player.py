@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 from StatCard import StatCard
+import random
+import string
 
 
 @dataclass
@@ -18,5 +20,12 @@ class Player:
     def __hash__(self):
         return hash((self.name, self.stat_card))
 
+    # return a number that represents the distance thrown
     def throw(self):
-        return self.stat_card.power * self.stat_card.stability  # windspeed later
+        return self.stat_card.power * self.stat_card.stability
+
+
+def generate_player():
+    alphabet = string.ascii_letters
+    return Player(''.join((random.choices(alphabet, k=10))),
+                  StatCard("player", random.randint(100, 250), random.uniform(.75, .90)))
