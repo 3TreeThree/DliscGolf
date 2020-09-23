@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from StatCard import StatCard
+import DiscBag
 import random
 import string
 
@@ -9,12 +10,13 @@ class Player:
     name = str
     stat_card = StatCard
     total_distance = int
+    disc_bag = DiscBag
 
     def __init__(self, name, stat_card):
         self.name = name
         self.stat_card = stat_card
 
-    def __str__(self):
+    def __repr__(self):
         return str(self.name) + " "
 
     def __hash__(self):
@@ -27,5 +29,5 @@ class Player:
 
 def generate_player():
     alphabet = string.ascii_letters
-    return Player(''.join((random.choices(alphabet, k=10))),
-                  StatCard("player", random.randint(100, 250), random.uniform(.75, .90)))
+    name = ''.join((random.choices(alphabet, k=7)))
+    return Player(name, StatCard(name, random.randint(175, 250), random.uniform(.75, .90)))

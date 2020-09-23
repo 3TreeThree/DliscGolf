@@ -12,8 +12,8 @@ class StatCard:
         self.power = power
         self.stability = stability
 
-    def __str__(self):
-        return str(self.player) + " power: " + str(self.power) + " stability: " + str(self.stability)
+    def __repr__(self):
+        return str(self.player) + "\npower: " + str(self.power) + "\nstability: " + str(round(self.stability, 4))
 
     def __hash__(self):
         return hash((self.player, self.power, self.stability))
