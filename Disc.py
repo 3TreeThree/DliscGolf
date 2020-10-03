@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from random import randint
 
 
 @dataclass
@@ -19,3 +20,7 @@ class Disc:
 
     def __hash__(self):
         return hash((self.speed, self.glide, self.turn, self.fade))
+
+
+def generate_disc():
+    return Disc(randint(1, 14), randint(1, 7), randint(-5, 1), randint(0, 5))

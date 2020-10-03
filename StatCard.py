@@ -5,15 +5,15 @@ from dataclasses import dataclass
 class StatCard:
     player = str
     power = int
-    stability = float
+    mental = float
 
-    def __init__(self, player, power, stability):
+    def __init__(self, player, power, mental):
         self.player = player
         self.power = power
-        self.stability = stability
+        self.mental = mental
 
     def __repr__(self):
-        return str(self.player) + "\npower: " + str(self.power) + "\nstability: " + str(round(self.stability, 4))
+        return str(self.player) + "\npower: " + str(self.power) + "\nmental: " + str(round(self.mental, 4))
 
     def __hash__(self):
-        return hash((self.player, self.power, self.stability))
+        return hash((self.player, self.power, self.mental))

@@ -11,7 +11,7 @@ def main():
 
     for player in players:
         print(player.stat_card)
-        player.disc_bag = [Disc.Disc(10, 10, 10, 10)]
+        player.disc_bag = [Disc.generate_disc()]
         print(player.disc_bag)
         print('\n')
 
@@ -22,7 +22,11 @@ def main():
             strokes = 0
             player.total_distance = 0
             while player.total_distance < hole.max_length and strokes < hole.par + 3:
-                player.total_distance += player.throw()
+                # if hole.max_length - player.total_distance > 100:
+                #     # putt
+                #     player.throw(player.disc_bag[0])
+
+                player.total_distance += player.throw(player.disc_bag[0])
                 strokes += 1
             score_card.scores[(player, hole)] = strokes - hole.par
     # results
